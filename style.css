@@ -1,0 +1,39 @@
+body {
+    transition: background 0.3s, color 0.3s;
+    background: #121212;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+body.light-mode {
+    background: #fff;
+    color: #000;
+}
+
+.toggle-button {
+    background: #222;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+
+.toggle-button.light {
+    background: #f4f4f4;
+    color: black;
+}
+
+.toggle-button:hover {
+    transform: scale(1.1);
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modo Dark/Light</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <button id="toggle-theme" class="toggle-button">
+        <span class="icon">🌙</span> Alternar Tema
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleButton = document.getElementById('toggle-theme');
+            const body = document.body;
+            const icon = toggleButton.querySelector('.icon');
+
+            // Verifica o tema salvo no localStorage e aplica ao carregar a página
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light-mode') {
+                body.classList.add('light-mode');
+                toggleButton.classList.add('light');
+                icon.textContent = "☀️"; // Define o ícone para sol se estiver no tema claro
+            } else {
+                icon.textContent = "🌙"; // Define o ícone para lua se estiver no tema escuro
+            }
+
+            // Alterna entre os temas ao clicar no botão
+            toggleButton.addEventListener('click', function () {
+                body.classList.toggle('light-mode');
+                toggleButton.classList.toggle('light');
+
+                if (body.classList.contains('light-mode')) {
+                    localStorage.setItem('theme', 'light-mode');
+                    icon.textContent = "☀️"; // Ícone de sol no tema claro
+                } else {
+                    localStorage.setItem('theme', 'dark-mode');
+                    icon.textContent = "🌙"; // Ícone de lua no tema escuro
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
